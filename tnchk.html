@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TN Checker - NL Tech</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Segoe UI',sans-serif;background:#f4f6f8;text-align:center;padding:40px;}
+    h1{margin-bottom:30px;color:#1d9bf0;}
+
+    textarea{width:100%;max-width:500px;height:150px;padding:12px;
+      border:1px solid #ccc;border-radius:6px;display:block;margin:0 auto 20px auto;
+      font-size:15px;resize:vertical;}
+
+    .btn{padding:12px 25px;background:#1d9bf0;color:white;font-size:16px;
+      font-weight:bold;border:none;border-radius:6px;cursor:pointer;transition:0.3s;}
+    .btn:hover{background:#0d6fb6;}
+
+    .result{margin-top:25px;text-align:left;max-width:500px;margin-left:auto;margin-right:auto;}
+    .live{color:green;font-weight:bold;}
+    .wasted{color:red;font-weight:bold;}
+    .unknown{color:#555;}
+  </style>
+</head>
+<body>
+  <h1><i class="fas fa-comment-dots"></i> TN Checker</h1>
+
+  <textarea id="usernames" placeholder="Enter TextNow emails/usernames (one per line)"></textarea>
+  <button class="btn" onclick="checkAccounts()">Check</button>
+
+  <div id="result" class="result"></div>
+
+  <script>
+    // ✅ Admin-set TextNow credentials
+    const liveAccounts = ["tn_user1", "textnow_pro", "coolnumber"];
+    const wastedAccounts = ["spam_account", "deleted_user", "fake_textnow"];
+
+    function checkAccounts(){
+      const input = document.getElementById('usernames').value.trim();
+      const resultBox = document.getElementById('result');
+      resultBox.innerHTML = "";
+
+      if(!input){
+        resultBox.innerHTML = "<p>Please enter at least one username or email.</p>";
+        return;
+      }
+
+      const lines = input.split(/\\n|,/).map(l => l.trim()).filter(Boolean);
+
+      let output = "<h3>Results:</h3><ul>";
+      lines.forEach(item => {
+        if(liveAccounts.includes(item)){
+          output += `<li class='live'>✅ ${item} is LIVE</li>`;
+        } else if(wastedAccounts.includes(item)){
+          output += `<li class='wasted'>❌ ${item} is WASTED</li>`;
+        } else {
+          output += `<li class='unknown'>⚠️ ${item} not found in database</li>`;
+        }
+      });
+      output += "</ul>";
+
+      resultBox.innerHTML = output;
+    }
+  </script>
+</body>
+</html>

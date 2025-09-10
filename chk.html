@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checker - NL Tech</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Segoe UI',sans-serif;background:#f4f6f8;text-align:center;padding:40px;}
+    h1{margin-bottom:30px;color:#333;}
+
+    .btn-container{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
+    .checker-btn{
+      display:flex;align-items:center;justify-content:center;
+      gap:10px;width:200px;padding:15px;
+      background:#fff;border-radius:8px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      font-size:16px;font-weight:600;
+      color:#333;text-decoration:none;
+      transition:0.3s;
+    }
+    .checker-btn:hover{transform:translateY(-5px);}
+    .checker-btn i{font-size:20px;}
+    
+    /* Dark mode */
+    body.dark{background:#1a1a1a;color:#f5f5f5;}
+    body.dark .checker-btn{background:#2b2b2b;color:#f5f5f5;}
+  </style>
+</head>
+<body>
+  <h1><i class="fas fa-search"></i> Checker</h1>
+  <div class="btn-container">
+    <a href="fbchk.html" class="checker-btn" style="color:#1877f2;"><i class="fab fa-facebook"></i> Facebook</a>
+    <a href="instachk.html" class="checker-btn" style="color:#e1306c;"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="tiktokchk.html" class="checker-btn" style="color:#000;"><i class="fab fa-tiktok"></i> TikTok</a>
+    <a href="tnchk.html" class="checker-btn" style="color:#1d9bf0;"><i class="fas fa-comment-dots"></i> TextNow</a>
+    <a href="ttchk.html" class="checker-btn" style="color:#4caf50;"><i class="fas fa-phone"></i> Talkatone</a>
+  </div>
+
+  <script>
+    // Optional: Dark mode toggle if needed
+    // document.body.classList.add('dark'); 
+  </script>
+</body>
+</html>
